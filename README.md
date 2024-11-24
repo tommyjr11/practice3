@@ -5,6 +5,8 @@ This project implements numerical methods for solving two-dimensional hyperbolic
     - **HLLC Solver**  
     - **SLIC Solver**
 The code is written in C++ with support for parallel execution using OpenMP. Visualization of the simulation results is provided through a Python script.
+w(in) = (ρ,vx,vy ,p)T = (1,0,0,1)
+w(out) = (ρ,vx,vy ,p)T = (0.125,0,0,0.1)
 
 ## Requirements
 ### Software Requirements
@@ -187,3 +189,29 @@ The script generates the following visualizations:
 5. **Modify and Re-run**:
 
    Tweak parameters, initial conditions, boundary conditions, or limiter functions, rebuild, and rerun the simulation to observe different behaviors.
+
+## Performance Results with Parallel
+
+Below are performance comparisons when using the **SLIC** solver with and without parallelization (using OpenMP) for different grid sizes.
+
+### SLIC Solver Performance
+
+#### With Parallelization (4 threads)
+
+| Grid Size (Cells) | Block Run Time (ms) | Total I/O Time (ms) | Real Computation Time (ms) |
+|-------------------|---------------------|---------------------|----------------------------|
+| 100 x 100         | 407.574             | 215.765             | 191.809                    |
+| 200 x 200         | 3064.22             | 1659.49             | 1404.73                    |
+| 400 x 400         | 23780.9             | 12718.8             | 11062.1                    |
+
+#### Without Parallelization (Single Thread)
+
+| Grid Size (Cells) | Block Run Time (ms) | Total I/O Time (ms) | Real Computation Time (ms) |
+|-------------------|---------------------|---------------------|----------------------------|
+| 100 x 100         | 765.054             | 217.926             | 547.128                    |
+| 200 x 200         | 5858.35             | 1654.26             | 4204.09                    |
+| 400 x 400         | 45404               | 12495.2             | 32908.8                    |
+
+**Summary**: The data shows that using parallel processing significantly reduces computation time, especially as the grid size increases.
+
+---
