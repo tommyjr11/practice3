@@ -9,6 +9,7 @@ BIN_DIR = bin
 
 
 TARGET = $(BIN_DIR)/1
+DATA = data/*.csv
 
 
 SRCS = $(SRC_DIR)/conservationform.C \
@@ -37,6 +38,7 @@ $(TARGET): $(OBJS)
 clean:
 	rm -f $(OBJS)
 	rm -f $(TARGET)
+	rm -f $(DATA)
 
 
 clean_exec:
