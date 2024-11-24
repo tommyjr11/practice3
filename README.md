@@ -20,8 +20,8 @@ The code is written in C++ with support for parallel execution using OpenMP. Vis
 ### Clone the Repository
 
 ```bash
-git clone [repository URL]
-cd [repository directory]
+git clone https://github.com/tommyjr11/practice3.git
+cd practice3
 ```
 
 ### Build the Project
